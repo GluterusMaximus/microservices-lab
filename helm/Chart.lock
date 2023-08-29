@@ -1,0 +1,15 @@
+dependencies:
+- name: postgresql
+  repository: https://marketplace.azurecr.io/helm/v1/repo
+  version: 10.16.2
+- name: common
+  repository: file://charts/common
+  version: 0.1.0
+- name: kafka
+  repository: https://charts.bitnami.com/bitnami
+  version: 18.3.1
+- name: kube-prometheus-stack
+  repository: https://prometheus-community.github.io/helm-charts
+  version: 48.3.3
+digest: sha256:466f605ae63e164f2402cb7a73f8f52751cc8b7c169d8521a65d7820a386abf6
+generated: "2023-08-25T12:55:00.802138086+03:00"

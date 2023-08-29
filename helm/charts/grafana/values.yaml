@@ -1,0 +1,8 @@
+replicaCount: 1
+
+selector:
+  app: grafana
+
+ingress:
+  path: /
+  port: http

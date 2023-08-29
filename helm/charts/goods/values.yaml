@@ -1,0 +1,34 @@
+replicaCount: 1
+
+selector:
+  app: goods
+
+timeout: 3s
+attempts: 5
+pertimeout: 5s
+
+image:
+  name: goods
+  tag: 0.1
+  port: 8080
+
+service:
+  ports:
+    - name: http
+      port: 80
+      containerPort: 8080
+
+ingress:
+  path: /api/goods
+  port: http
+
+configs:
+  POSTGRES_DB: demo
+  POSTGRES_HOST: postgres
+  KAFKA_HOST: "local-kafka:9092"
+  PRODUCER_TOPIC: goods-out-stock
+  CONSUMER_TOPIC: test
+
+secrets:
+  POSTGRES_USER: "ZGVtbw=="
+  POSTGRES_PASSWORD: "ZGVtbw=="

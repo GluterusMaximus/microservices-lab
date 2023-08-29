@@ -1,0 +1,26 @@
+postgresql:
+  fullnameOverride: postgres
+  postgresqlDatabase: "demo"
+  postgresqlUsername: "demo"
+  postgresqlPassword: "demo"
+  persistence:
+    size: 10Gi
+    mountPath: /var/lib/postgresql/data
+
+kafka:
+  enabled: true
+  brokers:
+    replicas: 3
+    storage:
+      size: 50Gi
+  zookeeper:
+    replicas: 3
+    storage:
+      size: 10Gi
+  topics:
+    - name: goods-out-stock
+      partitions: 1
+      replicationFactor: 1
+    - name: order-status-changed
+      partitions: 1
+      replicationFactor: 1

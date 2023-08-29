@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: local-goods-virtual
+spec:
+  hosts:
+    - local-goods-service
+  http:
+    - route:
+        - destination:
+            host: local-goods-service
+      timeout: 5s
+      retries:
+        attempts: 3
+        retryOn: 5xx
+        perTryTimeout: 5s

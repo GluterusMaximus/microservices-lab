@@ -1,0 +1,30 @@
+replicaCount: 1
+
+selector:
+  app: orders
+
+image:
+  name: orders
+  tag: 0.1
+  port: 8080
+
+service:
+  ports:
+    - name: http
+      port: 80
+      containerPort: 8080
+
+ingress:
+  path: /api/orders
+  port: http
+
+configs:
+  POSTGRES_DB: demo
+  POSTGRES_HOST: postgres
+  KAFKA_HOST: "local-kafka:9092"
+  PRODUCER_TOPIC: order-status-changed
+  CONSUMER_TOPIC: goods-out-stock
+
+secrets:
+  POSTGRES_USER: "ZGVtbw=="
+  POSTGRES_PASSWORD: "ZGVtbw=="

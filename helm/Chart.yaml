@@ -1,0 +1,25 @@
+apiVersion: v2
+type: application
+version: 0.0.6
+name: demo
+appVersion: "0.2"
+description: "demo"
+dependencies:
+  - name: postgresql
+    version: 10.16.2
+    repository: https://marketplace.azurecr.io/helm/v1/repo
+  - name: common
+    version: 0.1.0
+    repository: file://charts/common
+  - name: kafka
+    version: 18.3.1
+    repository: https://charts.bitnami.com/bitnami
+  - name: kube-prometheus-stack
+    version: 48.3.3
+    repository: https://prometheus-community.github.io/helm-charts
+  # - name: base
+  #   version: 1.18.2
+  #   repository: https://istio-release.storage.googleapis.com/charts
+  # - name: istiod
+  #   version: 1.18.2
+  #   repository: https://istio-release.storage.googleapis.com/charts
